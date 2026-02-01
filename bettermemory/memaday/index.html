@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Memorlock - Daily Memory Challenge</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWLB6G6E2S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NWLB6G6E2S');
+    </script>
+</head>
+<body>
+    <!-- Home Screen -->
+    <div id="home-screen" class="home-screen">
+        <div class="home-content">
+            <div class="logo-container">
+                <div class="tiles-background">
+                    <div class="logo-tile"></div>
+                    <div class="logo-tile"></div>
+                    <div class="logo-tile"></div>
+                    <div class="logo-tile"></div>
+                </div>
+            </div>
+            <h1 class="home-title">Memorlock</h1>
+            <p class="home-tagline">A daily memory challenge<br>to sharpen your mind</p>
+            
+            <!-- Game Info -->
+            <div class="home-game-info">
+                <div class="home-game-number" id="home-game-number">#1</div>
+                <div class="home-game-date" id="home-game-date">January 20, 2025</div>
+            </div>
+            
+            <!-- Stats Display -->
+            <div class="home-stats" id="home-stats">
+                <div class="home-stat-item">
+                    <span class="home-stat-value" id="home-stat-played">0</span>
+                    <span class="home-stat-label">Played</span>
+                </div>
+                <div class="home-stat-item">
+                    <span class="home-stat-value" id="home-stat-streak">0</span>
+                    <span class="home-stat-label">Current Streak</span>
+                </div>
+                <div class="home-stat-item">
+                    <span class="home-stat-value" id="home-stat-win-percent">0%</span>
+                    <span class="home-stat-label">Win %</span>
+                </div>
+            </div>
+            
+            <!-- Difficulty Selection -->
+            <div class="difficulty-selection">
+                <label for="difficulty-select" class="difficulty-label">Difficulty:</label>
+                <select id="difficulty-select" class="difficulty-dropdown">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <button id="start-game-btn" class="btn btn-primary">Start</button>
+            </div>
+            
+            <!-- Admire Puzzle Button -->
+            <div style="display: flex; justify-content: center; margin-top: 20px;">
+                <button id="admire-puzzle-btn" class="btn btn-primary" style="display: none;">Admire Puzzle</button>
+            </div>
+            
+            <!-- How to Play Link -->
+            <a href="#" id="how-to-play-link" class="home-link">How to Play</a>
+            
+            <!-- Reset Today Link (Development/Testing) -->
+            <a href="#" id="reset-today-link" class="home-link reset-link" style="display: none;">Reset Today</a>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="game-screen-wrapper" style="display: none;">
+        <div class="container">
+        <div class="game-toolbar">
+            <div class="toolbar-left">
+                <button id="how-to-play-btn" class="toolbar-link">How to Play</button>
+                <a href="#" id="stats-link" class="toolbar-link">Stats</a>
+                <a href="#" id="settings-link" class="toolbar-link">Settings</a>
+            </div>
+            <div class="toolbar-right">
+                <span class="game-title-toolbar">Memorlock</span>
+                <span class="game-day-info" id="game-day-info">#1</span>
+            </div>
+        </div>
+        <div class="game-info">
+            <div class="info-item">
+                <span class="label">Score</span>
+                <span id="score">0</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Round</span>
+                <span id="round">1</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Time</span>
+                <span id="overall-timer">0:00</span>
+            </div>
+        </div>
+
+        <div id="game-board" class="game-board"></div>
+
+        <div id="message" class="message"></div>
+        <div class="action-buttons">
+            <div class="timer-container">
+                <span id="timer-display" class="timer-display" style="display: none;">0:45</span>
+            </div>
+            <button id="show-all-btn" class="btn btn-secondary" style="display: none; margin: 0 auto 20px auto;">Show All</button>
+            <button id="next-btn" class="btn btn-primary" disabled style="margin: 0 auto 20px auto;">Next</button>
+        </div>
+        <div id="play-again-container" style="display: none; text-align: center; margin-top: 0; margin-bottom: 10px;">
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button id="see-answers-btn" class="btn btn-primary" style="display: none;">See Answers</button>
+                <button id="share-results-final-btn" class="btn btn-primary">Share</button>
+                <button id="back-to-home-btn" class="btn btn-primary">Home</button>
+            </div>
+        </div>
+
+        <div id="guess-modal" class="guess-modal" style="display: none;">
+            <div class="guess-modal-content">
+                <h3>Enter your guess</h3>
+                <p>What item was on this tile?</p>
+                <input type="text" id="guess-input" placeholder="Type your guess..." autofocus>
+                <div class="guess-modal-buttons">
+                    <button id="submit-guess" class="btn btn-primary">Submit</button>
+                    <button id="cancel-guess" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- How to Play Modal -->
+    <div id="how-to-play-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>How to Play</h2>
+                <button class="modal-close" id="close-how-to-play">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ol>
+                    <li>Quickly memorize tile contents and their positions</li>
+                    <li>Match each prompt to the correct tile location</li>
+                    <li>Take up to 4 rounds to guess all tiles correctly</li>
+                    <li>Challenge yourself to solve as quickly and accurately as you can</li>
+                    <li>Sharpen your mind and improve your memory by playing every day!</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="modal-close" id="close-settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <label class="setting-label" style="display: block; margin-bottom: 10px;">
+                        <span>Background Color</span>
+                    </label>
+                    <div class="color-options" id="color-options">
+                        <!-- Color options will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Modal -->
+    <div id="stats-modal" class="modal" style="display: none;">
+        <div class="modal-content win-modal-content">
+            <div class="win-header">
+                <h1 class="win-title">Stats</h1>
+            </div>
+            <div class="win-body">
+                <!-- Statistics Section -->
+                <div class="stats-section">
+                    <h3 class="stats-title">STATISTICS</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="stats-modal-played">0</div>
+                            <div class="stat-label">Played</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stats-modal-win-percent">0%</div>
+                            <div class="stat-label">Win %</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stats-modal-current-streak">0</div>
+                            <div class="stat-label">Current Streak</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stats-modal-max-streak">0</div>
+                            <div class="stat-label">Max Streak</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Time Stats Row -->
+                    <div class="time-stats-row">
+                        <div class="time-stat-item">
+                            <div class="time-stat-value" id="stats-modal-avg-time">0:00</div>
+                            <div class="time-stat-label">Average Time</div>
+                        </div>
+                        <div class="time-stat-item">
+                            <div class="time-stat-value" id="stats-modal-fastest-time">0:00</div>
+                            <div class="time-stat-label">Fastest Time</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solve Distribution Section -->
+                <div class="solve-distribution-section">
+                    <h3 class="stats-title">SOLVE DISTRIBUTION</h3>
+                    <div class="distribution-chart" id="stats-modal-distribution-chart">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+                    <button id="close-stats" class="btn btn-secondary">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Win Modal -->
+    <div id="win-modal" class="modal" style="display: none;">
+        <div class="modal-content win-modal-content">
+            <div class="win-header">
+                <h1 class="win-title" id="win-title-text">You Win!</h1>
+            </div>
+            <div class="win-body">
+                <!-- Statistics Section -->
+                <div class="stats-section">
+                    <h3 class="stats-title">STATISTICS</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-played">0</div>
+                            <div class="stat-label">Played</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-win-percent">0%</div>
+                            <div class="stat-label">Win %</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-current-streak">0</div>
+                            <div class="stat-label">Current Streak</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-max-streak">0</div>
+                            <div class="stat-label">Max Streak</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Time Stats Row -->
+                    <div class="time-stats-row">
+                        <div class="time-stat-item">
+                            <div class="time-stat-value" id="stat-completion-time">0:00</div>
+                            <div class="time-stat-label">Completion Time</div>
+                        </div>
+                        <div class="time-stat-item">
+                            <div class="time-stat-value" id="stat-avg-time">0:00</div>
+                            <div class="time-stat-label">Average Time</div>
+                        </div>
+                        <div class="time-stat-item">
+                            <div class="time-stat-value" id="stat-fastest-time">0:00</div>
+                            <div class="time-stat-label">Fastest Time</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solve Distribution Section -->
+                <div class="solve-distribution-section">
+                    <h3 class="stats-title">SOLVE DISTRIBUTION</h3>
+                    <div class="distribution-chart" id="solve-distribution-chart">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <button id="share-btn" class="btn btn-primary share-btn">Share Results</button>
+                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+                    <button id="back-to-home-modal-btn" class="btn btn-primary">Home</button>
+                    <button id="close-win-modal" class="btn btn-secondary">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Toast Modal -->
+    <div id="error-toast-modal" class="error-toast-modal" style="display: none;">
+        <div class="error-toast-content">
+            <p id="error-toast-message">Already guessed! Try another spot.</p>
+        </div>
+    </div>
+
+    <!-- Share Results Modal -->
+    <div id="share-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Share Your Results</h2>
+                <button class="modal-close" id="close-share-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 15px; color: #666;">Copy your results to share:</p>
+                <textarea id="share-text-area" readonly style="width: 100%; min-height: 150px; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: monospace; font-size: 0.9em; resize: none; background: #f8f9fa;"></textarea>
+                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+                    <button id="copy-share-btn" class="btn btn-primary">Copy to Clipboard</button>
+                    <button id="close-share-modal-btn" class="btn btn-secondary">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="daily.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
+

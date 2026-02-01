@@ -1,0 +1,2612 @@
+{
+  "1": {
+    "dayNumber": 1,
+    "date": "2026-01-20",
+    "category": "Fruits",
+    "answers": {
+      "1": "Apple",
+      "2": "Banana",
+      "3": "Orange",
+      "4": "Grape",
+      "5": "Strawberry",
+      "6": "Blueberry",
+      "7": "Mango",
+      "8": "Pineapple",
+      "9": "Kiwi",
+      "10": "Watermelon",
+      "11": "Peach",
+      "12": "Cherry",
+      "13": "Pear",
+      "14": "Plum",
+      "15": "Lemon",
+      "16": "Lime"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "2": {
+    "dayNumber": 2,
+    "date": "2026-01-21",
+    "category": "Animals",
+    "answers": {
+      "1": "Dog",
+      "2": "Cat",
+      "3": "Bird",
+      "4": "Fish",
+      "5": "Rabbit",
+      "6": "Hamster",
+      "7": "Turtle",
+      "8": "Snake",
+      "9": "Lizard",
+      "10": "Frog",
+      "11": "Horse",
+      "12": "Cow",
+      "13": "Pig",
+      "14": "Sheep",
+      "15": "Goat",
+      "16": "Chicken"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "3": {
+    "dayNumber": 3,
+    "date": "2026-01-22",
+    "category": "Colors",
+    "answers": {
+      "1": "Red",
+      "2": "Blue",
+      "3": "Green",
+      "4": "Yellow",
+      "5": "Orange",
+      "6": "Purple",
+      "7": "Pink",
+      "8": "Black",
+      "9": "White",
+      "10": "Gray",
+      "11": "Brown",
+      "12": "Cyan",
+      "13": "Magenta",
+      "14": "Indigo",
+      "15": "Turquoise",
+      "16": "Maroon"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "4": {
+    "dayNumber": 4,
+    "date": "2026-01-23",
+    "category": "Vehicles",
+    "answers": {
+      "1": "Car",
+      "2": "Bike",
+      "3": "Bus",
+      "4": "Train",
+      "5": "Plane",
+      "6": "Boat",
+      "7": "Truck",
+      "8": "Motorcycle",
+      "9": "Scooter",
+      "10": "Helicopter",
+      "11": "Subway",
+      "12": "Taxi",
+      "13": "Van",
+      "14": "SUV",
+      "15": "Convertible",
+      "16": "Sedan"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "5": {
+    "dayNumber": 5,
+    "date": "2026-01-24",
+    "category": "Food",
+    "answers": {
+      "1": "Pizza",
+      "2": "Burger",
+      "3": "Pasta",
+      "4": "Sushi",
+      "5": "Taco",
+      "6": "Salad",
+      "7": "Soup",
+      "8": "Sandwich",
+      "9": "Steak",
+      "10": "Chicken",
+      "11": "Fish",
+      "12": "Rice",
+      "13": "Bread",
+      "14": "Cake",
+      "15": "Ice Cream",
+      "16": "Cookie"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "6": {
+    "dayNumber": 6,
+    "date": "2026-01-25",
+    "category": "Weather & Space",
+    "answers": {
+      "1": "Sun",
+      "2": "Moon",
+      "3": "Star",
+      "4": "Cloud",
+      "5": "Rain",
+      "6": "Snow",
+      "7": "Wind",
+      "8": "Storm",
+      "9": "Lightning",
+      "10": "Rainbow",
+      "11": "Aurora",
+      "12": "Comet",
+      "13": "Planet",
+      "14": "Galaxy",
+      "15": "Nebula",
+      "16": "Meteor"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "7": {
+    "dayNumber": 7,
+    "date": "2026-01-26",
+    "category": "Musical Instruments",
+    "answers": {
+      "1": "Guitar",
+      "2": "Piano",
+      "3": "Drums",
+      "4": "Violin",
+      "5": "Flute",
+      "6": "Trumpet",
+      "7": "Saxophone",
+      "8": "Cello",
+      "9": "Harp",
+      "10": "Banjo",
+      "11": "Ukulele",
+      "12": "Clarinet",
+      "13": "Trombone",
+      "14": "Bass",
+      "15": "Harmonica",
+      "16": "Accordion"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "8": {
+    "dayNumber": 8,
+    "date": "2026-01-27",
+    "category": "School Supplies",
+    "answers": {
+      "1": "Book",
+      "2": "Pen",
+      "3": "Paper",
+      "4": "Pencil",
+      "5": "Eraser",
+      "6": "Ruler",
+      "7": "Notebook",
+      "8": "Marker",
+      "9": "Highlighter",
+      "10": "Stapler",
+      "11": "Scissors",
+      "12": "Glue",
+      "13": "Folder",
+      "14": "Binder",
+      "15": "Calculator",
+      "16": "Compass"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "9": {
+    "dayNumber": 9,
+    "date": "2026-01-28",
+    "category": "Fruits",
+    "answers": {
+      "1": "Apple",
+      "2": "Banana",
+      "3": "Orange",
+      "4": "Grape",
+      "5": "Strawberry",
+      "6": "Blueberry",
+      "7": "Mango",
+      "8": "Pineapple",
+      "9": "Kiwi",
+      "10": "Watermelon",
+      "11": "Peach",
+      "12": "Cherry",
+      "13": "Pear",
+      "14": "Plum",
+      "15": "Lemon",
+      "16": "Lime"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "10": {
+    "dayNumber": 10,
+    "date": "2026-01-29",
+    "category": "Animals",
+    "answers": {
+      "1": "Dog",
+      "2": "Cat",
+      "3": "Bird",
+      "4": "Fish",
+      "5": "Rabbit",
+      "6": "Hamster",
+      "7": "Turtle",
+      "8": "Snake",
+      "9": "Lizard",
+      "10": "Frog",
+      "11": "Horse",
+      "12": "Cow",
+      "13": "Pig",
+      "14": "Sheep",
+      "15": "Goat",
+      "16": "Chicken"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "11": {
+    "dayNumber": 11,
+    "date": "2026-01-30",
+    "category": "Colors",
+    "answers": {
+      "1": "Red",
+      "2": "Blue",
+      "3": "Green",
+      "4": "Yellow",
+      "5": "Orange",
+      "6": "Purple",
+      "7": "Pink",
+      "8": "Black",
+      "9": "White",
+      "10": "Gray",
+      "11": "Brown",
+      "12": "Cyan",
+      "13": "Magenta",
+      "14": "Indigo",
+      "15": "Turquoise",
+      "16": "Maroon"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "12": {
+    "dayNumber": 12,
+    "date": "2026-01-31",
+    "category": "Vehicles",
+    "answers": {
+      "1": "Car",
+      "2": "Bike",
+      "3": "Bus",
+      "4": "Train",
+      "5": "Plane",
+      "6": "Boat",
+      "7": "Truck",
+      "8": "Motorcycle",
+      "9": "Scooter",
+      "10": "Helicopter",
+      "11": "Subway",
+      "12": "Taxi",
+      "13": "Van",
+      "14": "SUV",
+      "15": "Convertible",
+      "16": "Sedan"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "13": {
+    "dayNumber": 13,
+    "date": "2026-02-01",
+    "category": "Food",
+    "answers": {
+      "1": "Pizza",
+      "2": "Burger",
+      "3": "Pasta",
+      "4": "Sushi",
+      "5": "Taco",
+      "6": "Salad",
+      "7": "Soup",
+      "8": "Sandwich",
+      "9": "Steak",
+      "10": "Chicken",
+      "11": "Fish",
+      "12": "Rice",
+      "13": "Bread",
+      "14": "Cake",
+      "15": "Ice Cream",
+      "16": "Cookie"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "14": {
+    "dayNumber": 14,
+    "date": "2026-02-02",
+    "category": "Weather & Space",
+    "answers": {
+      "1": "Sun",
+      "2": "Moon",
+      "3": "Star",
+      "4": "Cloud",
+      "5": "Rain",
+      "6": "Snow",
+      "7": "Wind",
+      "8": "Storm",
+      "9": "Lightning",
+      "10": "Rainbow",
+      "11": "Aurora",
+      "12": "Comet",
+      "13": "Planet",
+      "14": "Galaxy",
+      "15": "Nebula",
+      "16": "Meteor"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "15": {
+    "dayNumber": 15,
+    "date": "2026-02-03",
+    "category": "Musical Instruments",
+    "answers": {
+      "1": "Guitar",
+      "2": "Piano",
+      "3": "Drums",
+      "4": "Violin",
+      "5": "Flute",
+      "6": "Trumpet",
+      "7": "Saxophone",
+      "8": "Cello",
+      "9": "Harp",
+      "10": "Banjo",
+      "11": "Ukulele",
+      "12": "Clarinet",
+      "13": "Trombone",
+      "14": "Bass",
+      "15": "Harmonica",
+      "16": "Accordion"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "16": {
+    "dayNumber": 16,
+    "date": "2026-02-04",
+    "category": "School Supplies",
+    "answers": {
+      "1": "Book",
+      "2": "Pen",
+      "3": "Paper",
+      "4": "Pencil",
+      "5": "Eraser",
+      "6": "Ruler",
+      "7": "Notebook",
+      "8": "Marker",
+      "9": "Highlighter",
+      "10": "Stapler",
+      "11": "Scissors",
+      "12": "Glue",
+      "13": "Folder",
+      "14": "Binder",
+      "15": "Calculator",
+      "16": "Compass"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "17": {
+    "dayNumber": 17,
+    "date": "2026-02-05",
+    "category": "Fruits",
+    "answers": {
+      "1": "Apple",
+      "2": "Banana",
+      "3": "Orange",
+      "4": "Grape",
+      "5": "Strawberry",
+      "6": "Blueberry",
+      "7": "Mango",
+      "8": "Pineapple",
+      "9": "Kiwi",
+      "10": "Watermelon",
+      "11": "Peach",
+      "12": "Cherry",
+      "13": "Pear",
+      "14": "Plum",
+      "15": "Lemon",
+      "16": "Lime"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "18": {
+    "dayNumber": 18,
+    "date": "2026-02-06",
+    "category": "Animals",
+    "answers": {
+      "1": "Dog",
+      "2": "Cat",
+      "3": "Bird",
+      "4": "Fish",
+      "5": "Rabbit",
+      "6": "Hamster",
+      "7": "Turtle",
+      "8": "Snake",
+      "9": "Lizard",
+      "10": "Frog",
+      "11": "Horse",
+      "12": "Cow",
+      "13": "Pig",
+      "14": "Sheep",
+      "15": "Goat",
+      "16": "Chicken"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "19": {
+    "dayNumber": 19,
+    "date": "2026-02-07",
+    "category": "Colors",
+    "answers": {
+      "1": "Red",
+      "2": "Blue",
+      "3": "Green",
+      "4": "Yellow",
+      "5": "Orange",
+      "6": "Purple",
+      "7": "Pink",
+      "8": "Black",
+      "9": "White",
+      "10": "Gray",
+      "11": "Brown",
+      "12": "Cyan",
+      "13": "Magenta",
+      "14": "Indigo",
+      "15": "Turquoise",
+      "16": "Maroon"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "20": {
+    "dayNumber": 20,
+    "date": "2026-02-08",
+    "category": "Vehicles",
+    "answers": {
+      "1": "Car",
+      "2": "Bike",
+      "3": "Bus",
+      "4": "Train",
+      "5": "Plane",
+      "6": "Boat",
+      "7": "Truck",
+      "8": "Motorcycle",
+      "9": "Scooter",
+      "10": "Helicopter",
+      "11": "Subway",
+      "12": "Taxi",
+      "13": "Van",
+      "14": "SUV",
+      "15": "Convertible",
+      "16": "Sedan"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "21": {
+    "dayNumber": 21,
+    "date": "2026-02-09",
+    "category": "Food",
+    "answers": {
+      "1": "Pizza",
+      "2": "Burger",
+      "3": "Pasta",
+      "4": "Sushi",
+      "5": "Taco",
+      "6": "Salad",
+      "7": "Soup",
+      "8": "Sandwich",
+      "9": "Steak",
+      "10": "Chicken",
+      "11": "Fish",
+      "12": "Rice",
+      "13": "Bread",
+      "14": "Cake",
+      "15": "Ice Cream",
+      "16": "Cookie"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "22": {
+    "dayNumber": 22,
+    "date": "2026-02-10",
+    "category": "Weather & Space",
+    "answers": {
+      "1": "Sun",
+      "2": "Moon",
+      "3": "Star",
+      "4": "Cloud",
+      "5": "Rain",
+      "6": "Snow",
+      "7": "Wind",
+      "8": "Storm",
+      "9": "Lightning",
+      "10": "Rainbow",
+      "11": "Aurora",
+      "12": "Comet",
+      "13": "Planet",
+      "14": "Galaxy",
+      "15": "Nebula",
+      "16": "Meteor"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "23": {
+    "dayNumber": 23,
+    "date": "2026-02-11",
+    "category": "Musical Instruments",
+    "answers": {
+      "1": "Guitar",
+      "2": "Piano",
+      "3": "Drums",
+      "4": "Violin",
+      "5": "Flute",
+      "6": "Trumpet",
+      "7": "Saxophone",
+      "8": "Cello",
+      "9": "Harp",
+      "10": "Banjo",
+      "11": "Ukulele",
+      "12": "Clarinet",
+      "13": "Trombone",
+      "14": "Bass",
+      "15": "Harmonica",
+      "16": "Accordion"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "24": {
+    "dayNumber": 24,
+    "date": "2026-02-12",
+    "category": "School Supplies",
+    "answers": {
+      "1": "Book",
+      "2": "Pen",
+      "3": "Paper",
+      "4": "Pencil",
+      "5": "Eraser",
+      "6": "Ruler",
+      "7": "Notebook",
+      "8": "Marker",
+      "9": "Highlighter",
+      "10": "Stapler",
+      "11": "Scissors",
+      "12": "Glue",
+      "13": "Folder",
+      "14": "Binder",
+      "15": "Calculator",
+      "16": "Compass"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "25": {
+    "dayNumber": 25,
+    "date": "2026-02-13",
+    "category": "Fruits",
+    "answers": {
+      "1": "Apple",
+      "2": "Banana",
+      "3": "Orange",
+      "4": "Grape",
+      "5": "Strawberry",
+      "6": "Blueberry",
+      "7": "Mango",
+      "8": "Pineapple",
+      "9": "Kiwi",
+      "10": "Watermelon",
+      "11": "Peach",
+      "12": "Cherry",
+      "13": "Pear",
+      "14": "Plum",
+      "15": "Lemon",
+      "16": "Lime"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "26": {
+    "dayNumber": 26,
+    "date": "2026-02-14",
+    "category": "Animals",
+    "answers": {
+      "1": "Dog",
+      "2": "Cat",
+      "3": "Bird",
+      "4": "Fish",
+      "5": "Rabbit",
+      "6": "Hamster",
+      "7": "Turtle",
+      "8": "Snake",
+      "9": "Lizard",
+      "10": "Frog",
+      "11": "Horse",
+      "12": "Cow",
+      "13": "Pig",
+      "14": "Sheep",
+      "15": "Goat",
+      "16": "Chicken"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "27": {
+    "dayNumber": 27,
+    "date": "2026-02-15",
+    "category": "Colors",
+    "answers": {
+      "1": "Red",
+      "2": "Blue",
+      "3": "Green",
+      "4": "Yellow",
+      "5": "Orange",
+      "6": "Purple",
+      "7": "Pink",
+      "8": "Black",
+      "9": "White",
+      "10": "Gray",
+      "11": "Brown",
+      "12": "Cyan",
+      "13": "Magenta",
+      "14": "Indigo",
+      "15": "Turquoise",
+      "16": "Maroon"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "28": {
+    "dayNumber": 28,
+    "date": "2026-02-16",
+    "category": "Vehicles",
+    "answers": {
+      "1": "Car",
+      "2": "Bike",
+      "3": "Bus",
+      "4": "Train",
+      "5": "Plane",
+      "6": "Boat",
+      "7": "Truck",
+      "8": "Motorcycle",
+      "9": "Scooter",
+      "10": "Helicopter",
+      "11": "Subway",
+      "12": "Taxi",
+      "13": "Van",
+      "14": "SUV",
+      "15": "Convertible",
+      "16": "Sedan"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "29": {
+    "dayNumber": 29,
+    "date": "2026-02-17",
+    "category": "Food",
+    "answers": {
+      "1": "Pizza",
+      "2": "Burger",
+      "3": "Pasta",
+      "4": "Sushi",
+      "5": "Taco",
+      "6": "Salad",
+      "7": "Soup",
+      "8": "Sandwich",
+      "9": "Steak",
+      "10": "Chicken",
+      "11": "Fish",
+      "12": "Rice",
+      "13": "Bread",
+      "14": "Cake",
+      "15": "Ice Cream",
+      "16": "Cookie"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  },
+  "30": {
+    "dayNumber": 30,
+    "date": "2026-02-18",
+    "category": "Weather & Space",
+    "answers": {
+      "1": "Sun",
+      "2": "Moon",
+      "3": "Star",
+      "4": "Cloud",
+      "5": "Rain",
+      "6": "Snow",
+      "7": "Wind",
+      "8": "Storm",
+      "9": "Lightning",
+      "10": "Rainbow",
+      "11": "Aurora",
+      "12": "Comet",
+      "13": "Planet",
+      "14": "Galaxy",
+      "15": "Nebula",
+      "16": "Meteor"
+    },
+    "difficulties": {
+      "easy": {
+        "numTiles": 12,
+        "revealTime": 90,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "medium": {
+        "numTiles": 16,
+        "revealTime": 60,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "hard": {
+        "numTiles": 16,
+        "revealTime": 45,
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    }
+  }
+}
