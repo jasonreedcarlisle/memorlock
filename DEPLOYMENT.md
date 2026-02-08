@@ -1,13 +1,13 @@
-# Memorlock Deployment Guide
+# Hippo Daily Deployment Guide
 
-This document provides instructions for deploying Memorlock to Amazon Lightsail.
+This document provides instructions for deploying Hippo Daily (Hippomemory) to Amazon Lightsail.
 
 ## Prerequisites
 
 - Lightsail instance running Ubuntu 24.04 LTS
 - Static IP attached: `100.22.228.18`
-- Domain configured: `memorlock.com`
-- GitHub repository: `https://github.com/jasonreedcarlisle/memorlock`
+- Domains: hippomemory.com (primary), hippodaily.com, memfuel.com, memorlock.com (redirect to hippomemory.com)
+- GitHub repository: `https://github.com/jasonreedcarlisle/hippomemory`
 - SSH access to the Lightsail instance
 
 ## Initial Server Setup
@@ -50,7 +50,7 @@ sudo npm install -g pm2
 sudo apt install git -y
 ```
 
-### 6. Install nginx (Optional but Recommended)
+### 6. Install nginx
 
 ```bash
 sudo apt install nginx -y
@@ -60,14 +60,14 @@ sudo apt install nginx -y
 
 ```bash
 # Create directories
-mkdir -p /home/ubuntu/memaday-production
-mkdir -p /home/ubuntu/memaday-staging
+mkdir -p /home/ubuntu/hippomemory-production
+mkdir -p /home/ubuntu/hippomemory-staging
 mkdir -p /home/ubuntu/logs
 mkdir -p /home/ubuntu/backups
 
 # Set permissions
-chown -R ubuntu:ubuntu /home/ubuntu/memaday-production
-chown -R ubuntu:ubuntu /home/ubuntu/memaday-staging
+chown -R ubuntu:ubuntu /home/ubuntu/hippomemory-production
+chown -R ubuntu:ubuntu /home/ubuntu/hippomemory-staging
 chown -R ubuntu:ubuntu /home/ubuntu/logs
 chown -R ubuntu:ubuntu /home/ubuntu/backups
 ```
@@ -76,23 +76,23 @@ chown -R ubuntu:ubuntu /home/ubuntu/backups
 
 ```bash
 # Clone to production
-cd /home/ubuntu/memaday-production
-git clone https://github.com/jasonreedcarlisle/memorlock.git .
+cd /home/ubuntu/hippomemory-production
+git clone https://github.com/jasonreedcarlisle/hippomemory.git .
 
 # Clone to staging
-cd /home/ubuntu/memaday-staging
-git clone -b staging https://github.com/jasonreedcarlisle/memorlock.git .
+cd /home/ubuntu/hippomemory-staging
+git clone -b staging https://github.com/jasonreedcarlisle/hippomemory.git .
 ```
 
 ### 9. Install Dependencies
 
 ```bash
 # Production
-cd /home/ubuntu/memaday-production
+cd /home/ubuntu/hippomemory-production
 npm install --production
 
 # Staging
-cd /home/ubuntu/memaday-staging
+cd /home/ubuntu/hippomemory-staging
 npm install --production
 ```
 
@@ -100,7 +100,7 @@ npm install --production
 
 ```bash
 # Copy ecosystem.config.js to home directory (or keep in repo)
-cp /home/ubuntu/memaday-production/ecosystem.config.js /home/ubuntu/
+cp /home/ubuntu/hippomemory-production/ecosystem.config.js /home/ubuntu/
 ```
 
 ### 11. Start PM2 Processes
@@ -121,29 +121,29 @@ pm2 startup
 
 ```bash
 # Make backup script executable
-chmod +x /home/ubuntu/memaday-production/backup.sh
+chmod +x /home/ubuntu/hippomemory-production/backup.sh
 
 # Add to crontab (runs daily at 2 AM)
 crontab -e
 # Add this line:
-0 2 * * * /home/ubuntu/memaday-production/backup.sh >> /home/ubuntu/logs/backup.log 2>&1
+0 2 * * * /home/ubuntu/hippomemory-production/backup.sh >> /home/ubuntu/logs/backup.log 2>&1
 ```
 
-### 13. Configure nginx (Optional)
+### 13. Configure nginx
 
 Create nginx configuration:
 
 ```bash
-sudo nano /etc/nginx/sites-available/memorlock
+sudo nano /etc/nginx/sites-available/hippomemory
 ```
 
-Add this configuration:
+Add this configuration (paste only the nginx directives, not markdown code fences):
 
 ```nginx
-# Production (memorlock.com)
+# Primary: hippomemory.com (production)
 server {
     listen 80;
-    server_name memorlock.com www.memorlock.com;
+    server_name hippomemory.com www.hippomemory.com;
 
     location / {
         proxy_pass http://localhost:3001;
@@ -158,10 +158,10 @@ server {
     }
 }
 
-# Staging (staging.memorlock.com)
+# Staging
 server {
     listen 80;
-    server_name staging.memorlock.com;
+    server_name staging.hippomemory.com;
 
     location / {
         proxy_pass http://localhost:3002;
@@ -175,64 +175,104 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
+
+# Redirect: hippodaily.com -> hippomemory.com
+server {
+    listen 80;
+    server_name hippodaily.com www.hippodaily.com;
+    return 301 https://hippomemory.com$request_uri;
+}
+
+# Redirect: memfuel.com -> hippomemory.com
+server {
+    listen 80;
+    server_name memfuel.com www.memfuel.com;
+    return 301 https://hippomemory.com$request_uri;
+}
+
+# Redirect: memorlock.com -> hippomemory.com
+server {
+    listen 80;
+    server_name memorlock.com www.memorlock.com staging.memorlock.com;
+    return 301 https://hippomemory.com$request_uri;
+}
 ```
 
 Enable the site:
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/memorlock /etc/nginx/sites-enabled/
+sudo ln -sf /etc/nginx/sites-available/hippomemory /etc/nginx/sites-enabled/
 sudo nginx -t  # Test configuration
-sudo systemctl restart nginx
+sudo systemctl reload nginx
 ```
 
-### 14. Set Up SSL Certificate (Lightsail Managed)
+### 14. Set Up SSL (Certbot / Let's Encrypt)
 
-1. Go to Lightsail console
-2. Navigate to your instance
-3. Go to "Networking" tab
-4. Click "Create certificate"
-5. Enter domain: `memorlock.com` and `*.memorlock.com` (for staging)
-6. Attach certificate to your instance
-7. Lightsail will automatically configure HTTPS
+For a basic Lightsail instance, SSL is configured on the server using Certbot:
+
+```bash
+# Install Certbot and nginx plugin
+sudo apt update
+sudo apt install certbot python3-certbot-nginx -y
+
+# Obtain certificates (Certbot will configure nginx)
+sudo certbot --nginx -d hippomemory.com -d www.hippomemory.com -d staging.hippomemory.com
+```
+
+Certbot will obtain certificates from Let's Encrypt and automatically configure HTTPS. Choose "Yes" when asked to redirect HTTP to HTTPS. Certificates renew automatically.
 
 ## Deployment Workflow
 
-### Deploy to Staging
+### Deploy to Staging (from local machine)
+
+```bash
+cd hippomemory
+node deploy.js staging
+```
+
+Or manually on the server:
 
 ```bash
 # SSH into server
 ssh ubuntu@100.22.228.18
 
 # Run staging deployment script
-cd /home/ubuntu/memaday-staging
+cd /home/ubuntu/hippomemory-staging
 ./deploy-staging.sh
 ```
 
-Or manually:
+Or manually with git:
 
 ```bash
-cd /home/ubuntu/memaday-staging
+cd /home/ubuntu/hippomemory-staging
 git pull origin staging
-pm2 restart memorlock-staging
+pm2 restart hippomemory-staging
 ```
 
-### Deploy to Production
+### Deploy to Production (from local machine)
+
+```bash
+cd hippomemory
+node deploy.js production
+```
+
+Or manually on the server:
 
 ```bash
 # SSH into server
 ssh ubuntu@100.22.228.18
 
 # Run production deployment script
-cd /home/ubuntu/memaday-production
+cd /home/ubuntu/hippomemory-production
 ./deploy-production.sh
 ```
 
-Or manually:
+Or manually with git:
 
 ```bash
-cd /home/ubuntu/memaday-production
+cd /home/ubuntu/hippomemory-production
 git pull origin main
-pm2 restart memorlock-production
+pm2 restart hippomemory-production
 ```
 
 ## Monitoring
@@ -241,10 +281,10 @@ pm2 restart memorlock-production
 
 ```bash
 # Production logs
-pm2 logs memorlock-production
+pm2 logs hippomemory-production
 
 # Staging logs
-pm2 logs memorlock-staging
+pm2 logs hippomemory-staging
 
 # All logs
 pm2 logs
@@ -260,7 +300,7 @@ pm2 monit
 pm2 status
 
 # Detailed info
-pm2 info memorlock-production
+pm2 info hippomemory-production
 ```
 
 ### Check Server Resources
@@ -282,7 +322,7 @@ ps aux | grep node
 
 ```bash
 # Check logs
-pm2 logs memorlock-production --lines 50
+pm2 logs hippomemory-production --lines 50
 
 # Check if port is in use
 sudo netstat -tulpn | grep 3001
@@ -306,15 +346,16 @@ sudo tail -f /var/log/nginx/error.log
 
 ### SSL Certificate Issues
 
-- Check certificate status in Lightsail console
-- Verify DNS records are correct
-- Wait for DNS propagation (can take up to 48 hours)
+- Certbot certificates auto-renew; verify with `sudo certbot certificates`
+- Ensure DNS for hippomemory.com and staging.hippomemory.com points to `100.22.228.18`
+- Wait for DNS propagation (up to 48 hours)
 
 ## Backup and Restore
 
 ### Manual Backup
 
 ```bash
+cd /home/ubuntu/hippomemory-production
 ./backup.sh
 ```
 
@@ -324,9 +365,9 @@ sudo tail -f /var/log/nginx/error.log
 # List backups
 ls -lh /home/ubuntu/backups/
 
-# Restore a backup
-cp /home/ubuntu/backups/puzzles_production_20260120_020000.json /home/ubuntu/memaday-production/puzzles.json
-pm2 restart memorlock-production
+# Restore a backup (adjust filename as needed)
+cp /home/ubuntu/backups/puzzles_production_YYYYMMDD_HHMMSS.json /home/ubuntu/hippomemory-production/puzzles.json
+pm2 restart hippomemory-production
 ```
 
 ## Maintenance
@@ -373,10 +414,19 @@ sudo ufw status
 - Consider restricting SSH to your IP
 - Keep system packages updated
 
+## Project Structure
+
+The hippomemory project lives in `/home/ubuntu/hippomemory-production` (production) and `/home/ubuntu/hippomemory-staging` (staging). Key paths:
+
+- **App root:** `/home/ubuntu/hippomemory-production/`
+- **Logs:** `/home/ubuntu/logs/` (PM2 and backup logs)
+- **Backups:** `/home/ubuntu/backups/`
+- **PM2 config:** `/home/ubuntu/ecosystem.config.js`
+
 ## Support
 
 For issues or questions, check:
 - PM2 logs: `pm2 logs`
 - nginx logs: `/var/log/nginx/`
 - System logs: `journalctl -u nginx`
-
+- Detailed server setup: `STEP5_SERVER_SETUP.md`

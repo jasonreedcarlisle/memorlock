@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Hippo Daily - Daily Memory Challenge</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
     
     <!-- Google tag (gtag.js) -->
@@ -20,12 +21,7 @@
     <div id="home-screen" class="home-screen">
         <div class="home-content">
             <div class="logo-container">
-                <div class="tiles-background">
-                    <div class="logo-tile"></div>
-                    <div class="logo-tile"></div>
-                    <div class="logo-tile"></div>
-                    <div class="logo-tile"></div>
-                </div>
+                <img src="images/logo.png" alt="Hippo Daily" class="home-logo">
             </div>
             <h1 class="home-title">Hippo Daily</h1>
             <p class="home-tagline">A daily memory challenge<br>to sharpen your mind</p>
@@ -80,15 +76,13 @@
     <div id="game-screen" class="game-screen-wrapper" style="display: none;">
         <div class="container">
         <div class="game-toolbar">
-            <div class="toolbar-left">
+            <span class="game-title-toolbar">Hippo Daily</span>
+            <div class="toolbar-links">
                 <button id="how-to-play-btn" class="toolbar-link">How to Play</button>
                 <a href="#" id="stats-link" class="toolbar-link">Stats</a>
                 <a href="#" id="settings-link" class="toolbar-link">Settings</a>
             </div>
-            <div class="toolbar-right">
-                <span class="game-title-toolbar">Hippo Daily</span>
-                <span class="game-day-info" id="game-day-info">#1</span>
-            </div>
+            <span class="game-day-info" id="game-day-info">#1</span>
         </div>
         <div class="game-info">
             <div class="info-item">

@@ -35,37 +35,15 @@ body {
 }
 
 .logo-container {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
 }
 
-.tiles-background {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 12px;
-    width: 120px;
-    height: 120px;
-}
-
-.logo-tile {
-    width: 100%;
-    height: 100%;
-    border: 3px solid #5568d3;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    background: #667eea;
-}
-
-.logo-tile::before {
-    content: '?';
-    font-size: 2em;
-    color: white;
-    font-weight: 600;
+.home-logo {
+    width: 140px;
+    height: auto;
+    display: block;
 }
 
 .home-title {
@@ -253,14 +231,6 @@ body {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.game-day-info {
-    font-size: 0.85em;
-    color: #667eea;
-    font-weight: 600;
-    margin-left: 12px;
-    letter-spacing: 0.5px;
-}
-
 /* Game Screen */
 body.game-active {
     background: var(--bg-color, #764ba2);
@@ -280,27 +250,37 @@ body.game-active {
 
 .game-toolbar {
     background: transparent;
-    padding: 5px 0;
+    padding: 8px 0;
     margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 32px;
+    flex-wrap: nowrap;
 }
 
-.toolbar-left {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-left: -10px;
+.game-title-toolbar {
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #667eea;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin-right: 16px;
 }
 
-.toolbar-right {
+.toolbar-links {
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-right: -10px;
+    gap: 32px;
+    flex: 1;
+    flex-wrap: nowrap;
+    min-width: 0;
 }
 
 .toolbar-link {
+    white-space: nowrap;
     color: #333;
     text-decoration: none;
     font-size: 0.95em;
@@ -316,12 +296,14 @@ body.game-active {
     color: #667eea;
 }
 
-.game-title-toolbar {
-    font-weight: 700;
-    font-size: 1.1em;
+.game-day-info {
+    flex-shrink: 0;
+    font-size: 0.85em;
     color: #667eea;
+    font-weight: 600;
     letter-spacing: 0.5px;
-    margin-right: 8px;
+    white-space: nowrap;
+    margin-left: 16px;
 }
 
 .container {
@@ -1070,19 +1052,25 @@ header h1 {
     }
     
     .game-toolbar {
-        padding: 10px 15px;
+        padding: 10px 0;
+        gap: 24px;
     }
     
-    .toolbar-left {
-        gap: 15px;
+    .game-title-toolbar {
+        margin-right: 12px;
+        font-size: 1em;
+    }
+    
+    .toolbar-links {
+        gap: 20px;
     }
     
     .toolbar-link {
         font-size: 0.9em;
     }
     
-    .game-title-toolbar {
-        font-size: 1em;
+    .game-day-info {
+        margin-left: 12px;
     }
     
     body.game-active .container {
