@@ -9,8 +9,8 @@ set -e  # Exit on any error
 # Configuration
 BACKUP_DIR="/home/ubuntu/backups"
 DATE=$(date +%Y%m%d_%H%M%S)
-PRODUCTION_DIR="/home/ubuntu/memaday-production"
-STAGING_DIR="/home/ubuntu/memaday-staging"
+PRODUCTION_DIR="/home/ubuntu/hippomemory-production"
+STAGING_DIR="/home/ubuntu/hippomemory-staging"
 
 # Create backup directory if it doesn't exist
 mkdir -p "$BACKUP_DIR"

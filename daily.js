@@ -245,10 +245,15 @@ class DailyManager {
      * Get or create user ID
      */
     getUserId() {
-        let userId = localStorage.getItem('memaday_userId');
-        if (!userId) {
+        // Migrate from memaday keys (legacy Memorlock) if present
+        const legacyUserId = localStorage.getItem('memaday_userId');
+        let userId = localStorage.getItem('hippomemory_userId');
+        if (!userId && legacyUserId) {
+            userId = legacyUserId;
+            localStorage.setItem('hippomemory_userId', userId);
+        } else if (!userId) {
             userId = this.generateUserId();
-            localStorage.setItem('memaday_userId', userId);
+            localStorage.setItem('hippomemory_userId', userId);
         }
         return userId;
     }
@@ -282,8 +287,16 @@ class DailyManager {
      */
     getUserProgress() {
         const userId = this.getUserId();
-        const progressKey = 'memaday_progress';
-        const progressJson = localStorage.getItem(progressKey);
+        // Migrate from memaday keys (legacy Memorlock) if present
+        const progressKey = 'hippomemory_progress';
+        let progressJson = localStorage.getItem(progressKey);
+        if (!progressJson) {
+            const legacyProgress = localStorage.getItem('memaday_progress');
+            if (legacyProgress) {
+                localStorage.setItem(progressKey, legacyProgress);
+                progressJson = legacyProgress;
+            }
+        }
         
         if (!progressJson) {
             return this.initializeUserProgress(userId);
@@ -360,7 +373,7 @@ class DailyManager {
      * Save user progress
      */
     saveUserProgress(progress) {
-        const progressKey = 'memaday_progress';
+        const progressKey = 'hippomemory_progress';
         localStorage.setItem(progressKey, JSON.stringify(progress));
     }
 

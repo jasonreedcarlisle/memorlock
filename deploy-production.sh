@@ -8,7 +8,7 @@ set -e  # Exit on any error
 echo "🚀 Starting production deployment..."
 
 # Navigate to production directory
-cd /home/ubuntu/memaday-production
+cd /home/ubuntu/hippomemory-production
 
 # Pull latest code from main branch
 echo "📥 Pulling latest code from GitHub..."

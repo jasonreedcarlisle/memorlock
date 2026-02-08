@@ -15,8 +15,8 @@ const rl = readline.createInterface({
 
 const SERVER_USER = 'ubuntu';
 const SERVER_IP = '100.22.228.18';
-const STAGING_DIR = '/home/ubuntu/memaday-staging';
-const PRODUCTION_DIR = '/home/ubuntu/memaday-production';
+const STAGING_DIR = '/home/ubuntu/hippomemory-staging';
+const PRODUCTION_DIR = '/home/ubuntu/hippomemory-production';
 const PROJECT_DIR = __dirname;
 
 function exec(command, options = {}) {

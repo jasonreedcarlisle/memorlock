@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'memorlock-production',
       script: './index.js',
-      cwd: '/home/ubuntu/memaday-production',
+      cwd: '/home/ubuntu/hippomemory-production',
       instances: 1,
       exec_mode: 'fork',
       env: {
@@ -21,7 +21,7 @@ module.exports = {
     {
       name: 'memorlock-staging',
       script: './index.js',
-      cwd: '/home/ubuntu/memaday-staging',
+      cwd: '/home/ubuntu/hippomemory-staging',
       instances: 1,
       exec_mode: 'fork',
       env: {

@@ -8,7 +8,7 @@ set -e  # Exit on any error
 echo "🚀 Starting staging deployment..."
 
 # Navigate to staging directory
-cd /home/ubuntu/memaday-staging
+cd /home/ubuntu/hippomemory-staging
 
 # Pull latest code from staging branch
 echo "📥 Pulling latest code from GitHub..."
