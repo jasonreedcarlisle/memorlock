@@ -111,14 +111,25 @@ class MemoryGame {
         // Set up home screen
         this.setupHomeScreen();
         
-        // Set up difficulty selection dropdown and start button
+        // Set up difficulty selection dropdown and start button (direct + delegation so Start always works)
         const difficultySelect = document.getElementById('difficulty-select');
         const startGameBtn = document.getElementById('start-game-btn');
-        
+        const self = this;
+        const handleStartClick = () => {
+            const sel = document.getElementById('difficulty-select');
+            const selectedDifficulty = sel ? sel.value : 'medium';
+            self.selectDifficulty(selectedDifficulty);
+        };
         if (startGameBtn) {
-            startGameBtn.addEventListener('click', () => {
-                const selectedDifficulty = difficultySelect ? difficultySelect.value : 'medium';
-                this.selectDifficulty(selectedDifficulty);
+            startGameBtn.addEventListener('click', (e) => { e.preventDefault(); handleStartClick(); });
+        }
+        const homeScreen = document.getElementById('home-screen');
+        if (homeScreen) {
+            homeScreen.addEventListener('click', (e) => {
+                if (e.target && e.target.id === 'start-game-btn') {
+                    e.preventDefault();
+                    handleStartClick();
+                }
             });
         }
         
@@ -1286,51 +1297,56 @@ class MemoryGame {
     }
     
     setupHomeScreen() {
-        // Wait for dailyManager to be ready
-        setTimeout(() => {
-            const dayNumber = dailyManager.getCurrentDayNumber();
-            
-            // Get today's date in local timezone
-        const today = new Date();
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const todayFormatted = today.toLocaleDateString('en-US', options);
-            
-            // Update game number and date
-            const gameNumberEl = document.getElementById('home-game-number');
-            const gameDateEl = document.getElementById('home-game-date');
-            if (gameNumberEl) {
-                gameNumberEl.textContent = `#${dayNumber}`;
+        // Set date and puzzle number immediately so they're never wrong
+        let dayNumber = 1;
+        let todayFormatted = '';
+        try {
+            if (typeof dailyManager !== 'undefined' && dailyManager.getCurrentDayNumber) {
+                dayNumber = dailyManager.getCurrentDayNumber();
             }
-            if (gameDateEl) {
-                gameDateEl.textContent = todayFormatted;
+            const today = new Date();
+            todayFormatted = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        } catch (e) {
+            console.error('setupHomeScreen date error', e);
+            const today = new Date();
+            todayFormatted = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+        const gameNumberEl = document.getElementById('home-game-number');
+        const gameDateEl = document.getElementById('home-game-date');
+        if (gameNumberEl) gameNumberEl.textContent = `#${dayNumber}`;
+        if (gameDateEl) gameDateEl.textContent = todayFormatted;
+
+        // Defer streaks / in-progress check so DOM and dailyManager are ready
+        const runDeferred = () => {
+            try {
+                this.updateHomeStreaks();
+                this.checkInProgressGame(dayNumber);
+                this.updateResetTodayLink(dayNumber);
+            } catch (e) {
+                console.error('setupHomeScreen deferred error', e);
             }
-            
-            // Update streaks
-            this.updateHomeStreaks();
-            
-            // Check for in-progress game
-            this.checkInProgressGame(dayNumber);
-            
-            // Show/hide Reset Today link
-            this.updateResetTodayLink(dayNumber);
-        }, 100);
+        };
+        if (typeof requestAnimationFrame !== 'undefined') {
+            requestAnimationFrame(runDeferred);
+        } else {
+            setTimeout(runDeferred, 0);
+        }
     }
     
     updateResetTodayLink(dayNumber) {
         const resetLink = document.getElementById('reset-today-link');
         if (!resetLink) return;
-        
+        if (typeof dailyManager === 'undefined') return;
+
         const hostname = window.location.hostname;
         const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname.startsWith('192.168.') || hostname.startsWith('10.');
         const isStaging = hostname.includes('staging');
         const isProduction = hostname.includes('hippomemory.com') && !isStaging; // Exclude staging from production check
-        
-        // Only show link on localhost or staging, never in production
+
         if (isProduction) {
             resetLink.style.display = 'none';
             return;
         }
-        
         const progress = dailyManager.getUserProgress();
         const completion = dailyManager.checkCompletion(dayNumber, progress.lastPlayedDifficulty || 'medium');
         const hasInProgress = dailyManager.hasInProgressGame(dayNumber);
@@ -1486,11 +1502,11 @@ class MemoryGame {
         // Refresh home screen
         this.setupHomeScreen();
         
-        // Hide Admire Puzzle button and enable start button
-        const admirePuzzleBtn = document.getElementById('admire-puzzle-btn');
-        if (admirePuzzleBtn) {
-            admirePuzzleBtn.style.display = 'none';
-        }
+        // Show Difficulty + Start, hide Admire Puzzle
+        const difficultySelection = document.getElementById('difficulty-selection');
+        const admirePuzzleArea = document.getElementById('admire-puzzle-area');
+        if (difficultySelection) difficultySelection.style.display = '';
+        if (admirePuzzleArea) admirePuzzleArea.style.display = 'none';
         
         const startGameBtn = document.getElementById('start-game-btn');
         if (startGameBtn) {
@@ -1522,77 +1538,94 @@ class MemoryGame {
     }
     
     updateHomeStreaks() {
-        const progress = dailyManager.getUserProgress();
-        const playedEl = document.getElementById('home-stat-played');
-        const streakEl = document.getElementById('home-stat-streak');
-        const winPercentEl = document.getElementById('home-stat-win-percent');
-        
-        if (playedEl) playedEl.textContent = progress.totalGamesPlayed || 0;
-        if (streakEl) streakEl.textContent = progress.winStreak || 0;
-        if (winPercentEl) {
-            const winPercent = progress.totalGamesPlayed > 0 
-                ? Math.round((progress.totalGamesWon / progress.totalGamesPlayed) * 100) 
-                : 0;
-            winPercentEl.textContent = `${winPercent}%`;
+        if (typeof dailyManager === 'undefined') return;
+        try {
+            const progress = dailyManager.getUserProgress();
+            const playedEl = document.getElementById('home-stat-played');
+            const streakEl = document.getElementById('home-stat-streak');
+            const winPercentEl = document.getElementById('home-stat-win-percent');
+            if (playedEl) playedEl.textContent = progress.totalGamesPlayed || 0;
+            if (streakEl) streakEl.textContent = progress.winStreak || 0;
+            if (winPercentEl) {
+                const winPercent = progress.totalGamesPlayed > 0
+                    ? Math.round((progress.totalGamesWon / progress.totalGamesPlayed) * 100)
+                    : 0;
+                winPercentEl.textContent = `${winPercent}%`;
+            }
+        } catch (e) {
+            console.error('updateHomeStreaks error', e);
         }
     }
     
     checkInProgressGame(dayNumber) {
+        const difficultySelection = document.getElementById('difficulty-selection');
+        const admirePuzzleArea = document.getElementById('admire-puzzle-area');
         const difficultySelect = document.getElementById('difficulty-select');
         const startGameBtn = document.getElementById('start-game-btn');
-        const selectedDifficulty = difficultySelect ? difficultySelect.value : 'medium';
-        
-        if (dailyManager.hasInProgressGame(dayNumber)) {
-            const inProgress = dailyManager.getInProgressGame();
-            
-            // Hide Admire Puzzle button when there's an in-progress game
-            const admirePuzzleBtn = document.getElementById('admire-puzzle-btn');
-            if (admirePuzzleBtn) {
-                admirePuzzleBtn.style.display = 'none';
+        const statusEl = document.getElementById('home-status-message');
+        const setStatus = (text) => {
+            if (statusEl) {
+                statusEl.textContent = text || '';
+                statusEl.style.display = text ? 'block' : 'none';
             }
-            
-            // Enable start button if selected difficulty matches in-progress difficulty
+        };
+        const showDifficultyAndStart = () => {
+            if (difficultySelection) difficultySelection.style.display = 'flex';
+            if (admirePuzzleArea) admirePuzzleArea.style.display = 'none';
             if (startGameBtn) {
-                if (inProgress.difficulty === selectedDifficulty) {
-                    startGameBtn.disabled = false;
-                    startGameBtn.textContent = 'Resume';
-                } else {
-                    startGameBtn.disabled = true;
-                    startGameBtn.textContent = 'Start';
-                }
+                startGameBtn.disabled = false;
+                startGameBtn.textContent = 'Start';
             }
-        } else {
-            // Check if completed today for selected difficulty
-            const progress = dailyManager.getUserProgress();
-            const completion = dailyManager.checkCompletion(dayNumber, selectedDifficulty);
-            
-            if (completion.completed) {
-                // Show Admire Puzzle button
-                const admirePuzzleBtn = document.getElementById('admire-puzzle-btn');
-                if (admirePuzzleBtn) {
-                    admirePuzzleBtn.style.display = 'block';
-                }
-                
-                // Disable start button
-                if (startGameBtn) {
-                    startGameBtn.disabled = true;
-                    startGameBtn.textContent = 'Start';
-                }
+        };
+        const showAdmireOnly = () => {
+            if (difficultySelection) difficultySelection.style.display = 'none';
+            if (admirePuzzleArea) admirePuzzleArea.style.display = 'flex';
+            if (startGameBtn) {
+                startGameBtn.disabled = true;
+                startGameBtn.textContent = 'Start';
+            }
+            setStatus('');
+        };
+        
+        try {
+            if (typeof dailyManager === 'undefined') {
+                showDifficultyAndStart();
+                setStatus('');
             } else {
-                // Hide Admire Puzzle button and enable start button
-                const admirePuzzleBtn = document.getElementById('admire-puzzle-btn');
-                if (admirePuzzleBtn) {
-                    admirePuzzleBtn.style.display = 'none';
-                }
-                
-                if (startGameBtn) {
-                    startGameBtn.disabled = false;
-                    startGameBtn.textContent = 'Start';
+                const selectedDifficulty = difficultySelect ? difficultySelect.value : 'medium';
+                if (dailyManager.hasInProgressGame(dayNumber)) {
+                    const inProgress = dailyManager.getInProgressGame();
+                    showDifficultyAndStart();
+                    if (startGameBtn && inProgress) {
+                        if (inProgress.difficulty === selectedDifficulty) {
+                            startGameBtn.disabled = false;
+                            startGameBtn.textContent = 'Resume';
+                            setStatus('');
+                        } else {
+                            startGameBtn.disabled = true;
+                            startGameBtn.textContent = 'Start';
+                            const cap = inProgress.difficulty.charAt(0).toUpperCase() + inProgress.difficulty.slice(1);
+                            setStatus('You have an in-progress ' + cap + ' game. Select "' + cap + '" above to Resume, or use "Reset Today" below to start over.');
+                        }
+                    }
+                } else {
+                    const progress = dailyManager.getUserProgress();
+                    const completion = dailyManager.checkCompletion(dayNumber, selectedDifficulty);
+                    if (completion && completion.completed === true) {
+                        showAdmireOnly();
+                        setStatus('');
+                    } else {
+                        showDifficultyAndStart();
+                        setStatus('');
+                    }
                 }
             }
+        } catch (e) {
+            console.error('checkInProgressGame error', e);
+            showDifficultyAndStart();
+            setStatus('');
         }
         
-        // Update start button when difficulty changes (only add listener once)
         if (difficultySelect && !difficultySelect.hasAttribute('data-listener-added')) {
             difficultySelect.setAttribute('data-listener-added', 'true');
             difficultySelect.addEventListener('change', () => {
@@ -1743,11 +1776,11 @@ class MemoryGame {
         // Refresh home screen
         this.setupHomeScreen();
         
-        // Hide Admire Puzzle button and enable start button
-        const admirePuzzleBtn = document.getElementById('admire-puzzle-btn');
-        if (admirePuzzleBtn) {
-            admirePuzzleBtn.style.display = 'none';
-        }
+        // Show Difficulty + Start, hide Admire Puzzle
+        const difficultySelection = document.getElementById('difficulty-selection');
+        const admirePuzzleArea = document.getElementById('admire-puzzle-area');
+        if (difficultySelection) difficultySelection.style.display = '';
+        if (admirePuzzleArea) admirePuzzleArea.style.display = 'none';
         
         const startGameBtn = document.getElementById('start-game-btn');
         if (startGameBtn) {
@@ -1758,8 +1791,10 @@ class MemoryGame {
     
     showAdmirePuzzle() {
         const dayNumber = dailyManager.getCurrentDayNumber();
-        const difficultySelect = document.getElementById('difficulty-select');
-        const selectedDifficulty = difficultySelect ? difficultySelect.value : 'medium';
+        const progress = dailyManager.getUserProgress();
+        const completionRecord = progress.completions[dayNumber.toString()];
+        // Use difficulty they played at (dropdown is hidden after completion)
+        const selectedDifficulty = (completionRecord && completionRecord.difficulty) || progress.lastPlayedDifficulty || 'medium';
         
         // Set difficulty level
         this.difficultyLevel = selectedDifficulty;
@@ -1775,9 +1810,7 @@ class MemoryGame {
         }
         
         // Get completion data
-        const progress = dailyManager.getUserProgress();
         const completion = dailyManager.checkCompletion(dayNumber, selectedDifficulty);
-        const completionRecord = progress.completions[dayNumber.toString()];
         
         // Initialize game state to show completed puzzle
         this.gameStarted = true;
@@ -1948,29 +1981,29 @@ class MemoryGame {
     
     selectDifficulty(difficulty) {
         this.difficultyLevel = difficulty;
-        const dayNumber = dailyManager.getCurrentDayNumber();
-        
-        // Check if user already played this difficulty today
-        const completion = dailyManager.checkCompletion(dayNumber, difficulty);
-        if (completion.completed) {
-            alert(`You've already completed the ${difficulty} puzzle for today.`);
-            return;
-        }
-        
-        // Check for in-progress game
-        if (dailyManager.hasInProgressGame(dayNumber)) {
-            const inProgress = dailyManager.getInProgressGame();
-            if (inProgress.difficulty === difficulty) {
-                // Resume game
-                this.resumeGame(inProgress);
+        try {
+            if (typeof dailyManager === 'undefined') {
+                this.showGameScreen();
                 return;
-            } else {
+            }
+            const dayNumber = dailyManager.getCurrentDayNumber();
+            const completion = dailyManager.checkCompletion(dayNumber, difficulty);
+            if (completion && completion.completed) {
+                this.checkInProgressGame(dayNumber);
+                return;
+            }
+            if (dailyManager.hasInProgressGame(dayNumber)) {
+                const inProgress = dailyManager.getInProgressGame();
+                if (inProgress.difficulty === difficulty) {
+                    this.resumeGame(inProgress);
+                    return;
+                }
                 alert(`You have an in-progress ${inProgress.difficulty} puzzle. Please complete it first.`);
                 return;
             }
+        } catch (e) {
+            console.error('selectDifficulty error', e);
         }
-        
-        // Start new game
         this.showGameScreen();
     }
     
@@ -3384,8 +3417,14 @@ class MemoryGame {
     // playAgain removed - use backToHome() instead for Memaday
 }
 
-// Initialize game when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    new MemoryGame();
-});
+// Initialize game when page loads (handle both normal load and readyState already complete)
+function initGame() {
+    if (window.__hippoMemoryGame) return;
+    window.__hippoMemoryGame = new MemoryGame();
+}
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGame);
+} else {
+    initGame();
+}
 
